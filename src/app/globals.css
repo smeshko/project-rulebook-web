@@ -3,25 +3,170 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFF9F0;
+  --foreground: #000000;
+  --surface-primary: #FFFFFF;
+  --surface-secondary: #FFF9F0;
+  --surface-tertiary: #F5E6D3;
+  --brutalist-orange: #FF6B35;
+  --brutalist-blue: #3498DB;
+  --brutalist-yellow: #FFD23F;
+  --brutalist-purple: #7209B7;
+  --brutalist-pink: #E91E63;
+  --brutalist-green: #2ECC71;
+  --brutalist-red: #E74C3C;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #1C1C1E;
+  --foreground: #FFFFFF;
+  --surface-primary: #1C1C1E;
+  --surface-secondary: #2C2C2E;
+  --surface-tertiary: #3A3A3C;
+  --brutalist-orange: #FF8C5F;
+  --brutalist-blue: #5DADE2;
+  --brutalist-yellow: #FFE066;
+  --brutalist-purple: #9D4EDD;
+  --brutalist-pink: #F06292;
+  --brutalist-green: #58D68D;
+  --brutalist-red: #EC7063;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Brutalist Button Styles */
+@layer components {
+  .btn-brutalist {
+    @apply relative inline-flex items-center justify-center;
+    @apply px-8 py-4 font-black text-sm uppercase tracking-wider;
+    @apply border-3 border-black bg-brutalist-pink text-black;
+    @apply shadow-brutalist-sm;
+    @apply transition-all duration-150 ease-out;
+    @apply hover:shadow-brutalist-md hover:-translate-x-0.5 hover:-translate-y-0.5;
+    @apply active:shadow-none active:translate-x-1 active:translate-y-1;
   }
+
+  .btn-brutalist-secondary {
+    @apply relative inline-flex items-center justify-center;
+    @apply px-8 py-4 font-black text-sm uppercase tracking-wider;
+    @apply border-3 border-black bg-white text-black;
+    @apply transition-all duration-150 ease-out;
+    @apply hover:bg-surface-tertiary;
+  }
+
+  .btn-brutalist-ghost {
+    @apply inline-flex items-center gap-2;
+    @apply font-bold text-brutalist-orange underline underline-offset-4;
+    @apply transition-all duration-150;
+    @apply hover:text-brutalist-pink;
+  }
+
+  /* Brutalist Card */
+  .card-brutalist {
+    @apply relative bg-white border-3 border-black shadow-brutalist-md;
+    @apply transition-all duration-200 ease-out;
+    @apply hover:shadow-brutalist-lg hover:-translate-x-0.5 hover:-translate-y-0.5;
+  }
+
+  /* Brutalist Section Header */
+  .section-header {
+    @apply font-black text-3xl md:text-4xl uppercase tracking-tight;
+  }
+
+  /* Phone Mockup Container */
+  .phone-mockup {
+    @apply relative bg-black border-4 border-black rounded-[40px] overflow-hidden;
+    @apply shadow-brutalist-orange;
+    aspect-ratio: 9 / 19.5;
+  }
+
+  .phone-mockup-inner {
+    @apply absolute inset-2 bg-surface-primary-dark rounded-[32px] overflow-hidden;
+  }
+
+  /* Feature Icon Box */
+  .icon-box {
+    @apply w-12 h-12 flex items-center justify-center;
+    @apply border-3 border-black bg-brutalist-orange;
+    @apply shadow-brutalist-sm;
+  }
+
+  /* Diagonal Stripe Pattern */
+  .stripe-pattern {
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0.05) 20px
+    );
+  }
+
+  /* Screenshot Carousel */
+  .screenshot-container {
+    @apply relative bg-surface-primary-dark border-4 border-black;
+    @apply shadow-brutalist-orange;
+    @apply overflow-hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--foreground);
+  border: 3px solid var(--surface-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brutalist-orange);
+}
+
+/* Animation Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Selection */
+::selection {
+  background: var(--brutalist-orange);
+  color: white;
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 3px solid var(--brutalist-orange);
+  outline-offset: 2px;
+}
+
+/* Smooth hover transitions for links */
+a {
+  transition: color 0.15s ease;
+}
+
+/* Responsive container */
+.container-landing {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
