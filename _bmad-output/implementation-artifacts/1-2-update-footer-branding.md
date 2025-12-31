@@ -1,6 +1,6 @@
 # Story 1.2: Update Footer Branding
 
-Status: ready-for-dev
+Status: in-progress
 Linear Issue: not-configured
 Epic: 1 - Meeple Brand Identity
 Created: 2025-12-31
@@ -24,15 +24,15 @@ so that the brand identity is reinforced throughout my experience.
 
 ## Tasks / Subtasks
 
-- [ ] Open `src/components/layout/Footer.tsx`
-- [ ] Locate the logo text span (line 35) and change "Rulebook" to "Meeple"
-- [ ] Update the tagline if needed (line 37-39)
-- [ ] Update the copyright text (line 99) from "Rulebook" to "Meeple"
-- [ ] Remove the Twitter link from the `footerLinks.connect` array (line 17)
-- [ ] Remove the Email link from the `footerLinks.connect` array (line 18)
-- [ ] Remove or hide the Connect section entirely (since it will be empty)
-- [ ] Verify all changes render correctly
-- [ ] Test responsive layout
+- [x] Open `src/components/layout/Footer.tsx`
+- [x] Locate the logo text span (line 35) and change "Rulebook" to "Meeple"
+- [x] Update the tagline if needed (line 37-39)
+- [x] Update the copyright text (line 99) from "Rulebook" to "Meeple"
+- [x] Remove the Twitter link from the `footerLinks.connect` array (line 17)
+- [x] Remove the Email link from the `footerLinks.connect` array (line 18)
+- [x] Remove or hide the Connect section entirely (since it will be empty)
+- [x] Verify all changes render correctly
+- [x] Test responsive layout
 
 ---
 
@@ -140,8 +140,18 @@ No dependencies - this story modifies only `Footer.tsx` which is independent of 
 
 ### Agent Model Used
 
-N/A
+claude-opus-4-5-20251101
 
 ### Completion Notes List
 
+- Updated logo text from "Rulebook" to "Meeple" in footer header
+- Updated copyright text from "Rulebook" to "Meeple"
+- Removed entire `connect` object from `footerLinks` data (Twitter and Email links)
+- Removed Connect section JSX rendering block entirely
+- Updated grid layout from `md:grid-cols-4` to `md:grid-cols-3` for better visual balance after removing Connect section
+- Tagline kept as-is: "Learn any board game in 60 seconds. AI-powered rules, instant setup." (matches acceptance criteria for the first part)
+- Lint and build verified - both pass successfully
+
 ### File List
+
+- `src/components/layout/Footer.tsx` (modified)
