@@ -70,7 +70,7 @@ export function Features() {
     <section id="features" className="py-20 md:py-28 bg-white border-y-4 border-black">
       <div className="container-landing">
         <SectionHeader
-          title="Why Rulebook?"
+          title="Why Meeple?"
           subtitle="Everything you need to start playing any board game in under a minute."
         />
 

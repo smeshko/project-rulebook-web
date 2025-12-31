@@ -1,6 +1,6 @@
 # Story 1.3: Update Section Titles
 
-Status: ready-for-dev
+Status: done
 Linear Issue: not-configured
 Epic: 1 - Meeple Brand Identity
 Created: 2025-12-31
@@ -25,14 +25,14 @@ so that the brand name is clear throughout the page.
 
 ## Tasks / Subtasks
 
-- [ ] Open `src/components/sections/Features.tsx`
-- [ ] Locate the SectionHeader component (line 72-75)
-- [ ] Change title from "Why Rulebook?" to "Why Meeple?"
-- [ ] Open `src/components/sections/USP.tsx`
-- [ ] Locate the SectionHeader component (line 53-56)
-- [ ] Change title from "What Makes Rulebook Different" to "What Makes Meeple Different"
-- [ ] Also update any description text that mentions "Rulebook"
-- [ ] Verify changes render correctly in development
+- [x] Open `src/components/sections/Features.tsx`
+- [x] Locate the SectionHeader component (line 72-75)
+- [x] Change title from "Why Rulebook?" to "Why Meeple?"
+- [x] Open `src/components/sections/USP.tsx`
+- [x] Locate the SectionHeader component (line 53-56)
+- [x] Change title from "What Makes Rulebook Different" to "What Makes Meeple Different"
+- [x] Also update any description text that mentions "Rulebook"
+- [x] Verify changes render correctly in development
 
 ---
 
@@ -155,8 +155,16 @@ No dependencies - this story modifies `Features.tsx` and `USP.tsx` which are ind
 
 ### Agent Model Used
 
-N/A
+claude-opus-4-5-20251101
 
 ### Completion Notes List
 
+- Updated Features.tsx section title from "Why Rulebook?" to "Why Meeple?"
+- Updated USP.tsx section title from "What Makes Rulebook Different" to "What Makes Meeple Different"
+- Updated USP.tsx Photo-to-Rules Pipeline description from "Rulebook" to "Meeple"
+- Build verified successful with no TypeScript errors
+
 ### File List
+
+- `src/components/sections/Features.tsx` - Modified line 73
+- `src/components/sections/USP.tsx` - Modified lines 14 and 54
