@@ -162,6 +162,34 @@ Visitors see consistent "Meeple" branding throughout the site, building trust an
 - Update metadata (title, description, OpenGraph) with Meeple branding
 - Remove/placeholder social links and contact email until decided
 
+#### Epic 1: Dependency Flowchart
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║  WAVE 1: Start Immediately (PARALLEL x4)                                      ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  [1-1] Update Header    ║  [1-2] Update Footer    ║  [1-3] Update Section     ║
+║        Branding         ║        Branding         ║        Titles             ║
+║                         ║                         ║                           ║
+║  ════════════════════   ║  ════════════════════   ║  ════════════════════     ║
+║                         ║                         ║                           ║
+║                         ║  [1-4] Update Metadata  ║                           ║
+║                         ║        and SEO          ║                           ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+                                      │
+                                      ▼
+                              ┌───────────────┐
+                              │  Epic 1 Done  │
+                              └───────────────┘
+```
+
+**Execution Summary:**
+- **Wave 1:** All 4 stories can start immediately (fully parallel)
+- **No sequential dependencies:** Each story modifies independent files
+- **Estimated parallelization:** 4 developers could complete simultaneously
+
 ---
 
 ### Epic 2: Functional Waitlist
