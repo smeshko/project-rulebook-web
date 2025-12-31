@@ -1,6 +1,6 @@
 {
-  "name": "Rulebook",
-  "short_name": "Rulebook",
+  "name": "Meeple",
+  "short_name": "Meeple",
   "description": "Learn any board game in 60 seconds with AI-powered rules",
   "start_url": "/",
   "display": "standalone",

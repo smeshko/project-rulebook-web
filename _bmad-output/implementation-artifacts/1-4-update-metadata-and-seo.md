@@ -1,6 +1,6 @@
 # Story 1.4: Update Metadata and SEO
 
-Status: ready-for-dev
+Status: Done
 Linear Issue: not-configured
 Epic: 1 - Meeple Brand Identity
 Created: 2025-12-31
@@ -26,23 +26,23 @@ so that the site displays correctly in search results and social shares.
 
 ## Tasks / Subtasks
 
-- [ ] Open `src/app/layout.tsx`
-- [ ] Update `metadataBase` URL from `https://rulebook.app` to `https://meeple.app`
-- [ ] Update page title to use "Meeple" instead of "Rulebook"
-- [ ] Update meta description to reference "Meeple"
-- [ ] Update `authors`, `creator`, `publisher` from "Rulebook" to "Meeple"
-- [ ] Update OpenGraph metadata:
-  - [ ] Change `url` to `https://meeple.app`
-  - [ ] Change `siteName` to "Meeple"
-  - [ ] Update `title` and `description` with Meeple branding
-  - [ ] Update image alt text
-- [ ] Update Twitter card metadata:
-  - [ ] Update `title` and `description` with Meeple branding
-  - [ ] Remove `creator` and `site` Twitter handles (or set to placeholder)
-- [ ] Update `alternates.canonical` to `https://meeple.app`
-- [ ] Update Plausible analytics `data-domain` attribute from `rulebook.app` to `meeple.app`
-- [ ] Verify no TypeScript errors
-- [ ] Test metadata appears correctly in browser dev tools
+- [x] Open `src/app/layout.tsx`
+- [x] Update `metadataBase` URL from `https://rulebook.app` to `https://meeple.app`
+- [x] Update page title to use "Meeple" instead of "Rulebook"
+- [x] Update meta description to reference "Meeple"
+- [x] Update `authors`, `creator`, `publisher` from "Rulebook" to "Meeple"
+- [x] Update OpenGraph metadata:
+  - [x] Change `url` to `https://meeple.app`
+  - [x] Change `siteName` to "Meeple"
+  - [x] Update `title` and `description` with Meeple branding
+  - [x] Update image alt text
+- [x] Update Twitter card metadata:
+  - [x] Update `title` and `description` with Meeple branding
+  - [x] Remove `creator` and `site` Twitter handles (or set to placeholder)
+- [x] Update `alternates.canonical` to `https://meeple.app`
+- [x] Update Plausible analytics `data-domain` attribute from `rulebook.app` to `meeple.app`
+- [x] Verify no TypeScript errors
+- [x] Test metadata appears correctly in browser dev tools
 
 ---
 
@@ -228,8 +228,62 @@ No dependencies - this story modifies only `layout.tsx` which is independent of 
 
 ### Agent Model Used
 
-N/A
+Claude Opus 4.5
 
 ### Completion Notes List
 
+- Updated all metadata in `src/app/layout.tsx` from "Rulebook" branding to "Meeple" branding
+- Changed `metadataBase` URL from `https://rulebook.app` to `https://meeple.app`
+- Updated page title, authors, creator, and publisher to use "Meeple"
+- Updated OpenGraph metadata: url, siteName, title, description, and image alt text
+- Updated Twitter card metadata: title and description
+- Removed Twitter `creator` and `site` handle properties entirely (as per acceptance criteria)
+- Updated `alternates.canonical` to `https://meeple.app`
+- Updated Plausible analytics `data-domain` from `rulebook.app` to `meeple.app`
+- Verified TypeScript compilation with no errors
+- Verified build passes successfully
+
 ### File List
+
+- `src/app/layout.tsx` - Modified (metadata and analytics updates)
+- `src/app/sitemap.ts` - Modified (baseUrl updated to meeple.app)
+- `public/robots.txt` - Modified (sitemap URL updated to meeple.app)
+- `public/site.webmanifest` - Modified (name and short_name updated to Meeple)
+
+---
+
+## Senior Developer Review (AI)
+
+**Reviewer:** Claude Opus 4.5 (Adversarial Code Review)
+**Date:** 2025-12-31
+**Outcome:** APPROVED with fixes applied
+
+### Review Summary
+
+Initial review found 3 HIGH, 4 MEDIUM, and 3 LOW issues. All HIGH severity issues were fixed during review.
+
+### Issues Found & Fixed
+
+| # | Severity | Issue | File | Resolution |
+|---|----------|-------|------|------------|
+| 1 | HIGH | site.webmanifest still used "Rulebook" | `public/site.webmanifest` | ✅ Fixed - Updated name/short_name to "Meeple" |
+| 2 | HIGH | robots.txt referenced rulebook.app sitemap | `public/robots.txt` | ✅ Fixed - Updated to meeple.app |
+| 3 | HIGH | sitemap.ts used rulebook.app baseUrl | `src/app/sitemap.ts` | ✅ Fixed - Updated to meeple.app |
+
+### Issues Noted (Out of Scope for Story 1.4)
+
+| # | Severity | Issue | Notes |
+|---|----------|-------|-------|
+| 4 | MEDIUM | Header/Footer components use "Rulebook" | Covered by Story 1.2 |
+| 5 | MEDIUM | Twitter link in Footer uses @rulebookapp | Covered by Story 1.2 |
+| 6 | MEDIUM | Email domains use rulebook.app | Requires email infrastructure setup |
+| 7 | MEDIUM | Missing OG/Twitter image assets | Pre-existing - needs asset creation |
+| 8 | LOW | Legal/Support pages use "Rulebook" | Covered by Story 1.3 |
+| 9 | LOW | No automated tests for metadata | Test infrastructure not in scope |
+
+### Verification
+
+- ✅ TypeScript compilation passes
+- ✅ Build completes successfully
+- ✅ All SEO infrastructure files updated (layout.tsx, sitemap.ts, robots.txt, site.webmanifest)
+- ✅ No "rulebook.app" references remain in SEO files
