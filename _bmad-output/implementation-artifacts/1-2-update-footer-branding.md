@@ -1,6 +1,6 @@
 # Story 1.2: Update Footer Branding
 
-Status: in-progress
+Status: Ready for Review
 Linear Issue: not-configured
 Epic: 1 - Meeple Brand Identity
 Created: 2025-12-31
