@@ -11,7 +11,7 @@ const usps = [
       </svg>
     ),
     title: "Photo-to-Rules Pipeline",
-    description: "Other apps assume you already know your game. Rulebook is the only solution covering the complete journey—from \"what is this?\" to \"let's play.\"",
+    description: "Other apps assume you already know your game. Meeple is the only solution covering the complete journey—from \"what is this?\" to \"let's play.\"",
     color: "shadow-brutalist-orange",
   },
   {
@@ -51,7 +51,7 @@ export function USP() {
     <section className="py-20 md:py-28 bg-white border-y-4 border-black">
       <div className="container-landing">
         <SectionHeader
-          title="What Makes Rulebook Different"
+          title="What Makes Meeple Different"
           subtitle="Built by board game lovers who were tired of the same problems."
         />
 
