@@ -40,7 +40,7 @@ export function Header() {
                 <path d="M6 2h12a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v16h12V4H6zm2 2h8v2H8V6zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"/>
               </svg>
             </div>
-            <span className="font-black text-xl uppercase tracking-tight">Rulebook</span>
+            <span className="font-black text-xl uppercase tracking-tight">Meeple</span>
           </Link>
 
           {/* Desktop Navigation */}
