@@ -132,6 +132,15 @@ This should be updated to:
 "Other apps assume you already know your game. Meeple is the only solution covering the complete journey—from \"what is this?\" to \"let's play.\""
 ```
 
+### Scope Boundary Note
+
+This story intentionally addresses ONLY the Features and USP section titles. Other "Rulebook" instances remain in the codebase and are handled by:
+- **Story 1.1:** Header branding (`Header.tsx`)
+- **Story 1.2:** Footer branding (`Footer.tsx`)
+- **Story 1.4:** Metadata and SEO (`layout.tsx`)
+
+**Note:** After Epic 1 completion, additional "Rulebook" instances may remain in: `pricing/`, `support/`, `terms/`, `privacy/` pages, `Testimonials.tsx`, `FinalCTA.tsx`, `HowItWorks.tsx`, `Hero.tsx`. These are outside Epic 1 scope and may require a follow-up story.
+
 ### References
 
 - [Source: _bmad-output/epics.md#Story 1.3: Update Section Titles]
@@ -163,8 +172,28 @@ claude-opus-4-5-20251101
 - Updated USP.tsx section title from "What Makes Rulebook Different" to "What Makes Meeple Different"
 - Updated USP.tsx Photo-to-Rules Pipeline description from "Rulebook" to "Meeple"
 - Build verified successful with no TypeScript errors
+- Visual verification completed via dev server (localhost:3000) - all three text changes render correctly
 
 ### File List
 
 - `src/components/sections/Features.tsx` - Modified line 73
 - `src/components/sections/USP.tsx` - Modified lines 14 and 54
+
+### Code Review Record
+
+**Reviewed:** 2025-12-31
+**Reviewer:** claude-opus-4-5-20251101 (Adversarial Code Review)
+
+**Findings Summary:**
+- ✅ All Acceptance Criteria verified implemented
+- ✅ All tasks marked [x] confirmed complete
+- ✅ Git changes match File List
+- ✅ Build passes with no TypeScript errors
+- ✅ Visual verification confirmed via dev server
+
+**Issues Found & Fixed:**
+- [Fixed] Added visual verification evidence to Completion Notes
+- [Fixed] Added Scope Boundary Note documenting intentional exclusions
+- [Informational] Epic 1 scope gap noted - some "Rulebook" instances remain outside Epic 1 coverage
+
+**Review Result:** APPROVED - Story meets all acceptance criteria
