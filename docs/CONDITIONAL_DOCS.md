@@ -7,105 +7,104 @@ date: 2026-01-25
 
 # Conditional Documentation Guide
 
-Find the right documentation based on what you're trying to accomplish.
+This guide helps you find relevant documentation based on what you're working on.
 
----
+## Instructions
 
-## Getting Started
+- Review the task you need to perform
+- Check the conditions below
+- Read the relevant documentation before proceeding
+- Only read documentation if conditions match your task
 
-### New to the Project
+## Documentation Map
 
-1. [Getting Started](development/getting-started.md) - Environment setup
-2. [Architecture Overview](architecture/overview.md) - System design
-3. [Source Tree](reference/source-tree.md) - Code organization
+- docs/architecture/overview.md
+  - Conditions:
+    - When understanding the system architecture
+    - When making architectural decisions
+    - When onboarding to the project
 
-### Understanding the Codebase
+- docs/architecture/architecture.md
+  - Conditions:
+    - When needing detailed technical architecture
+    - When understanding component interactions
+    - When reviewing system design decisions
 
-1. [Project Overview](reference/project-overview.md) - Executive summary
-2. [Component Catalog](reference/ui-components.md) - Available components
-3. [Tech Stack](architecture/tech-stack.md) - Technologies used
+- docs/architecture/planning-architecture.md
+  - Conditions:
+    - When planning new features or modules
+    - When understanding implementation constraints
 
----
+- docs/development/getting-started.md
+  - Conditions:
+    - When setting up the development environment
+    - When onboarding new team members
+    - When configuring environment variables
 
-## Creating New Components
+- docs/development/development-guide.md
+  - Conditions:
+    - When understanding development workflows
+    - When following coding standards
+    - When working on implementation tasks
 
-### Adding a New Section Component
+- docs/design/design-system.md
+  - Conditions:
+    - When styling components
+    - When using design tokens (colors, typography, spacing)
+    - When implementing dark mode support
 
-1. Review [Architecture Overview](architecture/overview.md) for patterns
-2. Check [Component Catalog](reference/ui-components.md) for existing patterns
-3. Follow [Design System](design/design-system.md) for styling
-4. Add to barrel exports in `src/components/sections/index.ts`
+- docs/design/ux-specification.md
+  - Conditions:
+    - When implementing UI components
+    - When understanding component specifications
+    - When reviewing UX requirements
 
-### Adding a New UI Component
+- docs/reference/project-overview.md
+  - Conditions:
+    - When needing executive summary of the project
+    - When understanding project scope and goals
 
-1. Check [Component Catalog](reference/ui-components.md) for similar components
-2. Follow [Design System](design/design-system.md) for tokens
-3. Add to barrel exports in `src/components/ui/index.ts`
+- docs/reference/source-tree.md
+  - Conditions:
+    - When understanding code organization
+    - When locating specific files or directories
+    - When adding new files to the codebase
 
----
+- docs/reference/ui-components.md
+  - Conditions:
+    - When checking available UI components
+    - When avoiding duplicate component creation
+    - When understanding component patterns
 
-## Working with Styling
+- docs/product/prd.md
+  - Conditions:
+    - When understanding full product requirements
+    - When verifying feature specifications
+    - When checking acceptance criteria
 
-### Using the Design System
+- docs/product/gap-analysis.md
+  - Conditions:
+    - When understanding current vs. required state
+    - When prioritizing implementation work
+    - When identifying missing features
 
-1. [Design System](design/design-system.md) - Colors, typography, spacing
-2. [UX Specification](design/ux-specification.md) - Component specs
-3. Check `tailwind.config.ts` for custom theme values
+- docs/testing/testing-strategy.md
+  - Conditions:
+    - When writing tests
+    - When understanding test coverage requirements
+    - When setting up test infrastructure
 
-### Adding Dark Mode Support
+- docs/ios/product-spec.md
+  - Conditions:
+    - When understanding the mobile app context
+    - When aligning landing page with mobile app features
 
-1. Review [Design System](design/design-system.md#dark-mode) for dark variants
-2. Use Tailwind `dark:` prefix for dark mode styles
+- docs/ios/android-migration-prd.md
+  - Conditions:
+    - When understanding mobile app requirements
+    - When reviewing cross-platform considerations
 
----
-
-## Deployment
-
-### Deploying to Production
-
-1. [Deployment Guide](architecture/deployment.md) - Vercel setup
-2. Run `npm run build` to verify build succeeds
-3. Push to `main` branch for auto-deploy
-
-### Environment Configuration
-
-1. Check [Getting Started](development/getting-started.md#environment) for env vars
-2. Configure in Vercel dashboard for production
-
----
-
-## Product Understanding
-
-### Understanding Requirements
-
-1. [PRD](product/prd.md) - Full product requirements
-2. [Gap Analysis](product/gap-analysis.md) - Current vs. required
-
-### Understanding Implementation Plan
-
-1. [Epics](product/epics.md) - Epic breakdown
-2. Check `_bmad-output/implementation-artifacts/` for stories
-
----
-
-## Mobile App Context
-
-### Understanding the Mobile App
-
-1. [iOS Product Spec](ios/product-spec.md) - Mobile app overview
-2. [Android Migration PRD](ios/android-migration-prd.md) - Mobile requirements
-3. [Mobile Components](ios/android-migration-components.md) - UI specifications
-
----
-
-## Debugging & Operations
-
-### Fixing Issues
-
-1. [Development Workflow](development/workflow.md) - Development process
-2. Run `npm run lint` for code quality issues
-
-### Checking Build
-
-1. Run `npm run build` for production build
-2. Run `npm run start` to test production locally
+- docs/ios/android-migration-components.md
+  - Conditions:
+    - When understanding mobile UI specifications
+    - When aligning web components with mobile design
