@@ -108,3 +108,11 @@ This guide helps you find relevant documentation based on what you're working on
   - Conditions:
     - When understanding mobile UI specifications
     - When aligning web components with mobile design
+
+- docs/features/waitlist-api-service.md
+  - Conditions:
+    - When implementing forms that subscribe to the waitlist
+    - When integrating with the project-rulebook backend API
+    - When handling API responses with discriminated unions
+    - When adding error handling for network requests
+    - When working with Hero or FinalCTA form components
