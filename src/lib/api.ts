@@ -39,13 +39,15 @@ export type WaitlistResult =
 export async function subscribeToWaitlist(
   email: string
 ): Promise<WaitlistResult> {
+  const normalizedEmail = email.trim();
+
   try {
     const response = await fetch(WAITLIST_API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email: normalizedEmail }),
     });
 
     // Handle error responses
@@ -71,8 +73,16 @@ export async function subscribeToWaitlist(
     }
 
     // Handle success
-    const data: WaitlistResponse = await response.json();
-    return { success: true, data };
+    try {
+      const data: WaitlistResponse = await response.json();
+      return { success: true, data };
+    } catch {
+      // Handle JSON parse errors (unexpected response format)
+      return {
+        success: false,
+        error: { type: "unknown", message: ERROR_MESSAGES.unknown },
+      };
+    }
   } catch {
     // Handle network errors
     return {
