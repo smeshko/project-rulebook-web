@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Input } from "@/components/ui";
+import { subscribeToWaitlist } from "@/lib/api";
 
 export function FinalCTA() {
   const [email, setEmail] = useState("");
