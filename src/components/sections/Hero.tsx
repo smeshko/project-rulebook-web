@@ -14,11 +14,15 @@ export function Hero() {
     setErrorMessage(null);
     setStatus("loading");
 
-    // Simulate API call
-    setTimeout(() => {
+    const result = await subscribeToWaitlist(email);
+
+    if (result.success) {
       setStatus("success");
       setEmail("");
-    }, 1000);
+    } else {
+      setStatus("error");
+      setErrorMessage(result.error.message);
+    }
   };
 
   return (
