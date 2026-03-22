@@ -109,6 +109,13 @@ This guide helps you find relevant documentation based on what you're working on
     - When understanding mobile UI specifications
     - When aligning web components with mobile design
 
+- docs/features/environment-configuration.md
+  - Conditions:
+    - When adding new environment variables to the landing page
+    - When modifying API or site URLs in config.ts
+    - When consuming NEXT_PUBLIC_API_URL or NEXT_PUBLIC_SITE_URL
+    - When onboarding and setting up .env for local development
+
 - docs/features/waitlist-api-service.md
   - Conditions:
     - When implementing forms that subscribe to the waitlist
