@@ -138,18 +138,25 @@ Props needed:
 | HowItWorks Step 2 | `10_rules_generation_a.PNG` (generation in progress) |
 | HowItWorks Step 3 | `12_rules_a.PNG` (rules result) |
 
-### 5. Missing Static Assets
+### 5. Static Assets
 
-| Asset | Status | Required For |
-|-------|--------|--------------|
-| `/favicon.ico` | Missing | Browser tab |
-| `/icon.svg` | Missing | Modern browsers |
-| `/apple-touch-icon.png` | Missing | iOS home screen |
-| `/og-image.png` | Missing | Social sharing |
-| `/twitter-card.png` | Missing | Twitter sharing |
-| App Store badge SVG | Missing | Download buttons |
-| Play Store badge SVG | Missing | Download buttons |
-| Meeple logo/wordmark | Missing | Header, Footer |
+| Asset | Status | Required For | Notes |
+|-------|--------|--------------|-------|
+| `/favicon.ico` | Placeholder | Browser tab | 32x32, brand colors — replace with final branded icon |
+| `/icon.svg` | Placeholder | Modern browsers | SVG with "M" path — replace with final logo |
+| `/apple-touch-icon.png` | Placeholder | iOS home screen | 180x180, brand colors — replace with final icon |
+| `/og-image.png` | Placeholder | Social sharing | 1200x630, brand colors + "M" — replace with branded design |
+| `/twitter-card.png` | Placeholder | Twitter sharing | 1200x630, same as OG — replace with branded design |
+| `/icon-192.png` | Placeholder | PWA manifest | 192x192, brand colors — replace with final icon |
+| `/icon-512.png` | Placeholder | PWA manifest | 512x512, brand colors — replace with final icon |
+| App Store badge SVG | Missing | Download buttons | |
+| Play Store badge SVG | Missing | Download buttons | |
+| Meeple logo/wordmark | Missing | Header, Footer | |
+
+> **Placeholder asset requirements for final branding:**
+> - **Favicon/Icons** (`favicon.ico`, `icon.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`): Replace with final Meeple logo. ICO must be 32x32, SVG scalable, apple-touch 180x180, PWA icons 192x192 and 512x512.
+> - **Social images** (`og-image.png`, `twitter-card.png`): Replace with branded 1200x630 designs. Include Meeple logo, tagline, and app screenshots for best social engagement.
+> - Generator script at `scripts/generate-placeholders.mjs` can be re-run to regenerate placeholders if needed.
 
 ### 6. SEO & Metadata Gaps
 
