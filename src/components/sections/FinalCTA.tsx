@@ -2,20 +2,27 @@
 
 import { useState } from "react";
 import { Button, Input } from "@/components/ui";
+import { subscribeToWaitlist } from "@/lib/api";
 
 export function FinalCTA() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
     setStatus("loading");
 
-    // Simulate API call
-    setTimeout(() => {
+    const result = await subscribeToWaitlist(email);
+
+    if (result.success) {
       setStatus("success");
       setEmail("");
-    }, 1000);
+    } else {
+      setStatus("error");
+      setErrorMessage(result.error.message);
+    }
   };
 
   return (
@@ -52,23 +59,37 @@ export function FinalCTA() {
                 You&apos;re on the list! We&apos;ll notify you at launch.
               </div>
             ) : (
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="flex-1 bg-white text-black"
-                />
-                <Button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="bg-brutalist-orange border-white whitespace-nowrap"
-                >
-                  {status === "loading" ? "Joining..." : "Join Waitlist"}
-                </Button>
-              </div>
+              <>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="flex-1 bg-white text-black"
+                  />
+                  <Button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="bg-brutalist-orange border-white whitespace-nowrap"
+                  >
+                    {status === "loading" ? "Joining..." : "Join Waitlist"}
+                  </Button>
+                </div>
+                {status === "error" && errorMessage && (
+                  <p className="text-red-400 font-bold text-sm mt-2">
+                    {errorMessage}{" "}
+                    <button
+                      type="button"
+                      onClick={() => setStatus("idle")}
+                      className="underline hover:text-red-300"
+                    >
+                      Try Again
+                    </button>
+                  </p>
+                )}
+              </>
             )}
 
             <p className="text-white/40 text-sm mt-4">
