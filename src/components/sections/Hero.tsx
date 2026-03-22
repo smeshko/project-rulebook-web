@@ -7,9 +7,11 @@ import { subscribeToWaitlist } from "@/lib/api";
 export function Hero() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
     setStatus("loading");
 
     // Simulate API call
