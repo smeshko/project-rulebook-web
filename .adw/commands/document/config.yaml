@@ -4,11 +4,15 @@
 # Uncomment settings to customize this phase.
 
 enabled: true
-timeout_seconds: 900
+# input_files:  # Variable → file mappings for templates
+#   prd: docs/prd.md
+#   architecture: docs/architecture.md
 
-# pre_hook: null  # Shell command before phase
-# post_hook: null  # Shell command after phase
+# llm:
+#   model: null  # Options: opus, sonnet, haiku
+#   # Defaults: plan/validate→opus, build/ship→sonnet, document→haiku
 
-input_files:
-  docs: /docs/README.md
-  getting-started: /docs/development/getting-started.md
+# === Document Phase Settings ===
+# doc_mappings:  # Source-to-docs directory mappings
+#   - source_pattern: "src/**/*.py"
+#     docs_dir: docs/api

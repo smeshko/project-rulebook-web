@@ -47,3 +47,6 @@ next-env.d.ts
 _bmad-backup/
 .linear
 logs/
+
+# ADW worktree directory
+trees/
