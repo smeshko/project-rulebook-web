@@ -8,10 +8,13 @@ function stripTrailingSlash(url: string): string {
 function resolveUrl(envValue: string | undefined, fallback: string): string {
   const raw = envValue || fallback;
   try {
-    new URL(raw);
+    const parsed = new URL(raw);
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+      return stripTrailingSlash(fallback);
+    }
     return stripTrailingSlash(raw);
   } catch {
-    return fallback;
+    return stripTrailingSlash(fallback);
   }
 }
 
