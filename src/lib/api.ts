@@ -3,9 +3,10 @@
  * Provides reusable integration logic for waitlist subscription forms.
  */
 
+import { API_URL } from "@/lib/config";
+
 // API Configuration
-const WAITLIST_API_URL =
-  "https://project-rulebook-staging.up.railway.app/api/waitlist";
+const WAITLIST_API_URL = `${API_URL}/api/waitlist`;
 
 // Error Messages
 const ERROR_MESSAGES = {
