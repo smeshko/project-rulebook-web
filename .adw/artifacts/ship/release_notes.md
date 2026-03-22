@@ -1,17 +1,15 @@
 ## [Unreleased] - 2026-03-22
 
 ### Added
-- Create placeholder favicon assets (favicon.ico, icon.svg, apple-touch-icon.png)
-- Create placeholder OG and social images (og-image.png, twitter-card.png)
-- Create placeholder PWA manifest icons (icon-192.png, icon-512.png)
+- Use config SITE_URL in layout metadata
+- Use config SITE_URL in sitemap
+- Use config API_URL in waitlist service
+- Create centralized config module
+- Add environment variable files
 
 ### Fixed
-- Correct ICO bits-per-pixel for PNG-embedded format
-- Improve Node compat and add directory safety check in generator script
+- Enforce HTTP(S) protocol and normalize fallback URLs
+- Add URL validation and trailing slash normalization in config
 
 ### Documentation
-- Document placeholder assets and branding requirements in gap-analysis.md
-
-### Other
-- Verify layout.tsx metadata references
-- Verify robots.txt configuration
+- Add environment configuration feature documentation

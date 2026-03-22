@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { SITE_URL } from "@/lib/config";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,7 +16,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://meeple.app"),
+  metadataBase: new URL(SITE_URL),
   title: "Meeple — Learn Any Board Game in 60 Seconds | AI-Powered Rules",
   description:
     "Stop reading rulebooks. Scan any board game box with your phone and get instant, easy-to-follow rules. Start playing in under 60 seconds. Free to try.",
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://meeple.app",
+    url: SITE_URL,
     siteName: "Meeple",
     title: "Meeple — Learn Any Board Game in 60 Seconds",
     description:
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   alternates: {
-    canonical: "https://meeple.app",
+    canonical: SITE_URL,
   },
 };
 
