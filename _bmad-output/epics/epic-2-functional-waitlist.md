@@ -4,6 +4,8 @@ Visitors can successfully join the waitlist and receive confirmation that they'r
 
 ## Story 2.1: Create Waitlist API Service
 
+**Status:** Done (previously implemented but not merged to staging — needs cherry-pick or re-implementation)
+
 As a **developer**,
 I want a reusable waitlist API service,
 So that both Hero and FinalCTA forms can use the same integration logic.
@@ -12,7 +14,7 @@ So that both Hero and FinalCTA forms can use the same integration logic.
 
 **Given** the waitlist service is implemented
 **When** it is called with a valid email
-**Then** it makes a POST request to `https://project-rulebook-staging.up.railway.app/api/waitlist`
+**Then** it makes a POST request to `${NEXT_PUBLIC_API_URL}/api/v1/waitlist`
 **And** the request body contains `{ "email": "<user-email>" }`
 **And** it returns success with the response message
 **And** it handles 400 errors (invalid email) gracefully
@@ -20,6 +22,40 @@ So that both Hero and FinalCTA forms can use the same integration logic.
 **And** it handles network errors gracefully
 
 **Files to create:** `src/lib/api.ts`
+
+**Dependency:** Requires `NEXT_PUBLIC_API_URL` env var (Story 4.3) or hardcoded staging URL as interim.
+
+### Backend API Contract
+
+**Endpoint:** `POST /api/v1/waitlist` (note: `/v1/` prefix is required)
+
+**Request:**
+```json
+{ "email": "user@example.com" }
+```
+
+**Success Response (200):**
+```json
+{ "message": "Thanks for joining the waitlist!", "email": "user@example.com" }
+```
+
+**Duplicate Response (200, idempotent):**
+```json
+{ "message": "You're already on the waitlist!", "email": "user@example.com" }
+```
+
+**Validation Error (400):**
+```json
+{ "error": true, "reason": "Invalid email format", "errorIdentifier": null }
+```
+
+**Rate Limited (429):** No response body. Check `response.status === 429`. Headers include `Retry-After: 3600`.
+
+**Implementation Notes:**
+- Success responses use `{ message, email }` shape
+- Error responses use `{ error, reason }` shape — parse `reason` field for error messages
+- 429 has NO body — must detect by HTTP status code, not by parsing JSON
+- Rate limit: 10 requests/hour per IP in production
 
 ---
 
@@ -41,7 +77,7 @@ So that I can be notified when the app launches.
 **When** I submit the form
 **Then** I see an error message about invalid email format
 
-**Given** the API returns a rate limit error
+**Given** the API returns a rate limit error (429)
 **When** I submit the form
 **Then** I see a message asking me to try again later
 
@@ -50,6 +86,16 @@ So that I can be notified when the app launches.
 **Then** I see a generic error message with retry option
 
 **Files to modify:** `src/components/sections/Hero.tsx`
+
+**Implementation Notes:**
+- Import and use the waitlist API service from `src/lib/api.ts`
+- Replace simulated `setTimeout` with real API call
+- Error responses from backend use `reason` field (not `message`) for error text
+- 429 responses have no body — detect by status code
+- Add error state handling with user-friendly messages
+- Keep existing loading and success state patterns
+
+**Depends on:** Story 2.1
 
 ---
 
@@ -71,10 +117,24 @@ So that I have another opportunity to sign up before leaving the page.
 **When** I submit the form
 **Then** I see an error message about invalid email format
 
-**Given** the API returns an error
+**Given** the API returns a rate limit error (429)
 **When** I submit the form
-**Then** I see an appropriate error message
+**Then** I see a message asking me to try again later
+
+**Given** there is a network error
+**When** I submit the form
+**Then** I see a generic error message with retry option
 
 **Files to modify:** `src/components/sections/FinalCTA.tsx`
+
+**Implementation Notes:**
+- Import and use the waitlist API service from `src/lib/api.ts`
+- Replace simulated `setTimeout` with real API call
+- Error responses from backend use `reason` field (not `message`) for error text
+- 429 responses have no body — detect by status code
+- Add error state handling with user-friendly messages
+- Keep existing loading and success state patterns
+
+**Depends on:** Story 2.1
 
 ---
