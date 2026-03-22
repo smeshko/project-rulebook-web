@@ -69,6 +69,18 @@ export function Hero() {
                       {status === "loading" ? "Joining..." : "Join Waitlist"}
                     </Button>
                   </div>
+                  {status === "error" && errorMessage && (
+                    <p className="text-red-600 font-bold text-sm mt-2">
+                      {errorMessage}{" "}
+                      <button
+                        type="button"
+                        onClick={() => setStatus("idle")}
+                        className="underline hover:text-red-800"
+                      >
+                        Try Again
+                      </button>
+                    </p>
+                  )}
                   <p className="text-content-tertiary text-sm mt-3">
                     Be first to know when we launch. No spam.
                   </p>
