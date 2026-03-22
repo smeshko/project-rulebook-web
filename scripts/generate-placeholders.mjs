@@ -8,10 +8,12 @@
  */
 
 import { writeFileSync, mkdirSync } from 'fs';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { deflateSync } from 'zlib';
 
-const PUBLIC = join(import.meta.dirname, '..', 'public');
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const PUBLIC = join(__dirname, '..', 'public');
 
 // Brand colors
 const PRIMARY = [0xFF, 0x6B, 0x35]; // #FF6B35
@@ -196,6 +198,7 @@ function createIco(pngData) {
 // ─── Generate All Assets ─────────────────────────────────────────
 
 console.log('Generating placeholder assets...');
+mkdirSync(PUBLIC, { recursive: true });
 
 // 1. icon.svg
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
