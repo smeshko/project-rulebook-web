@@ -2,20 +2,27 @@
 
 import { useState } from "react";
 import { Button, Input, PhoneMockup } from "@/components/ui";
+import { subscribeToWaitlist } from "@/lib/api";
 
 export function Hero() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
     setStatus("loading");
 
-    // Simulate API call
-    setTimeout(() => {
+    const result = await subscribeToWaitlist(email);
+
+    if (result.success) {
       setStatus("success");
       setEmail("");
-    }, 1000);
+    } else {
+      setStatus("error");
+      setErrorMessage(result.error.message);
+    }
   };
 
   return (
@@ -62,6 +69,18 @@ export function Hero() {
                       {status === "loading" ? "Joining..." : "Join Waitlist"}
                     </Button>
                   </div>
+                  {status === "error" && errorMessage && (
+                    <p className="text-red-600 font-bold text-sm mt-2">
+                      {errorMessage}{" "}
+                      <button
+                        type="button"
+                        onClick={() => setStatus("idle")}
+                        className="underline hover:text-red-800"
+                      >
+                        Try Again
+                      </button>
+                    </p>
+                  )}
                   <p className="text-content-tertiary text-sm mt-3">
                     Be first to know when we launch. No spam.
                   </p>
