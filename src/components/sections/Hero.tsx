@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Input, PhoneMockup } from "@/components/ui";
+import { subscribeToWaitlist } from "@/lib/api";
 
 export function Hero() {
   const [email, setEmail] = useState("");
