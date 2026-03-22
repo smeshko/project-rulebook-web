@@ -188,7 +188,7 @@ function createIco(pngData) {
   entry[2] = 0;   // color palette
   entry[3] = 0;   // reserved
   entry.writeUInt16LE(1, 4);     // color planes
-  entry.writeUInt16LE(32, 6);    // bits per pixel
+  entry.writeUInt16LE(0, 6);     // bits per pixel (0 for PNG-embedded ICO)
   entry.writeUInt32LE(pngData.length, 8);  // size
   entry.writeUInt32LE(22, 12);   // offset (6 + 16)
 
