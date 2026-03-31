@@ -11,6 +11,7 @@ export function Hero() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "loading") return;
     setErrorMessage(null);
     setStatus("loading");
 
@@ -111,7 +112,7 @@ export function Hero() {
 
           {/* Phone Mockup */}
           <div className="order-1 lg:order-2 flex justify-center animate-slide-in-right">
-            <PhoneMockup screenshot="/screenshots/rules-display.png" alt="Rulebook app showing game rules" />
+            <PhoneMockup screenshot="/screenshots/rules-display.png" alt="Meeple app showing game rules" />
           </div>
         </div>
       </div>
