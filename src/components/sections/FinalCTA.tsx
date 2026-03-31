@@ -49,7 +49,7 @@ export function FinalCTA() {
           </h2>
 
           <p className="text-xl text-white/70 mb-10 animate-slide-up delay-100">
-            Join the waitlist and be the first to know when Rulebook launches.<br />
+            Join the waitlist and be the first to know when Meeple launches.<br />
             3 free scans included for early supporters.
           </p>
 
