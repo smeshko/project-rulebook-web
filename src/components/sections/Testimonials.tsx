@@ -50,7 +50,7 @@ export function Testimonials() {
           subtitle="These are the moments Rulebook was built to fix."
         />
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {painPoints.map((item, index) => (
             <Card
               key={item.persona}
