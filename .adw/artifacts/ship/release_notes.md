@@ -1,15 +1,9 @@
-## [Unreleased] - 2026-03-22
+## [Unreleased] - 2026-03-31
 
 ### Added
-- Use config SITE_URL in layout metadata
-- Use config SITE_URL in sitemap
-- Use config API_URL in waitlist service
-- Create centralized config module
-- Add environment variable files
+- Add fourth pain point persona "The Returner" with quote, arrow-path SVG icon, and persona label
+- Adjust grid layout from 3-column to responsive 2-column/4-column for four pain point cards
 
 ### Fixed
-- Enforce HTTP(S) protocol and normalize fallback URLs
-- Add URL validation and trailing slash normalization in config
-
-### Documentation
-- Add environment configuration feature documentation
+- Update testimonials subtitle branding from "Rulebook" to "Meeple"
+- Add loading guard to Hero form, fix remaining Rulebook branding references
