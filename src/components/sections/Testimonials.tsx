@@ -47,7 +47,7 @@ export function Testimonials() {
       <div className="container-landing">
         <SectionHeader
           title="Sound Familiar?"
-          subtitle="These are the moments Rulebook was built to fix."
+          subtitle="These are the moments Meeple was built to fix."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
